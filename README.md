@@ -6,10 +6,10 @@ Part 1 is a notebook which streams audio and displays the waveform with matplotl
 Part 2 adds a spectrum viewer using scipy.fftpack to compute the FFT.
 
 Team Members:
-ADIL SANAD
-ALEENA CIJO
-ASHWIN P
-FARHA ISMAIL
+ADIL SANAD,
+ALEENA CIJO,
+ASHWIN P,
+FARHA ISMAIL,
 KEVIN ANTONY
 
 Biblography:
