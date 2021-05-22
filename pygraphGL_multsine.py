@@ -1,14 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-    Animated 3D sinc function
-
-    requires:
-        1. pyqtgraph
-            - download from here http://www.pyqtgraph.org/
-        2. pyopenGL
-            - if you have Anaconda, run the following command
-            >>> conda install -c anaconda pyopengl
-"""
 
 from pyqtgraph.Qt import QtCore, QtGui
 import pyqtgraph.opengl as gl
@@ -82,7 +71,6 @@ class Visualizer(object):
         self.start()
 
 
-# Start event loop.
 if __name__ == '__main__':
     v = Visualizer()
     v.animation()
