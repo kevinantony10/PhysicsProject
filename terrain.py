@@ -1,13 +1,3 @@
-"""
-This creates a 3D mesh with perlin noise to simulate
-a terrain. The mesh is animated by shifting the noise
-to give a "fly-over" effect.
-
-If you don't have pyOpenGL or opensimplex, then:
-
-    - conda install -c anaconda pyopengl
-    - pip install opensimplex
-"""
 
 import numpy as np
 from pyqtgraph.Qt import QtCore, QtGui
@@ -22,7 +12,7 @@ class Terrain(object):
         Initialize the graphics window and mesh
         """
 
-        # setup the view window
+
         self.app = QtGui.QApplication(sys.argv)
         self.w = gl.GLViewWidget()
         self.w.setGeometry(0, 110, 1920, 1080)
@@ -30,24 +20,22 @@ class Terrain(object):
         self.w.setWindowTitle('Terrain')
         self.w.setCameraPosition(distance=30, elevation=8)
 
-        # constants and arrays
         self.nsteps = 1
         self.ypoints = range(-20, 22, self.nsteps)
         self.xpoints = range(-20, 22, self.nsteps)
         self.nfaces = len(self.ypoints)
         self.offset = 0
 
-        # perlin noise object
+
         self.tmp = OpenSimplex()
 
-        # create the veritices array
+
         verts = np.array([
             [
                 x, y, 1.5 * self.tmp.noise2d(x=n / 5, y=m / 5)
             ] for n, x in enumerate(self.xpoints) for m, y in enumerate(self.ypoints)
         ], dtype=np.float32)
 
-        # create the faces and colors arrays
         faces = []
         colors = []
         for m in range(self.nfaces - 1):
@@ -61,7 +49,6 @@ class Terrain(object):
         faces = np.array(faces)
         colors = np.array(colors)
 
-        # create the mesh item
         self.m1 = gl.GLMeshItem(
             vertexes=verts,
             faces=faces, faceColors=colors,
